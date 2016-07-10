@@ -1,0 +1,161 @@
+# Presenters
+
+A [decorator][] library for [Rails][] applications, inspired by
+[Draper][], but with an emphasis on architectural simplicity. Presenters
+uses the given [ActiveSupport][] and [Ruby standard library][stdlib]
+objects that can help in building an object-presentation layer for your
+models.
+
+## Usage
+
+After installing, run the following command to get things set up:
+
+```bash
+$ bin/rails presenters:install
+```
+
+This will mix in the `Presenters::Presentable` module into your
+`ApplicationRecord` model code, enabling models to be presented by
+calling `model.present`. This module is also mixed into your
+`ApplicationController`, because the `present` method can be called with
+an optional first argument that dictates the model being presented. In
+addition to mixing itself in (visibly) to your controller and model
+layer, this generator also creates an `ApplicationPresenter` and
+`CollectionPresenter` base class for presenting models and collections,
+respectively. All presenters will be derived from one of these base
+classes.
+
+In your application code, presentation would look like the following:
+
+```ruby
+class PostsController < ApplicationController
+  def index
+    @posts = present Post.search(params[:q])
+  end
+
+  def show
+    @post = Post.find(params[:id]).present
+  end
+end
+```
+
+It is recommended to choose one syntax and make that standard across
+your app, however both syntaxes are provided in case one or the other
+works out better for you.
+
+### The Presenter Class
+
+Presenters are subclasses of `Presenters::Presenter`, which itself
+subclasses (and implements [Delegator][]. The Delegator API was designed
+specifically for implementing decorator objects such as this, and it's
+utilized here to delegate all method calls not implemented on the
+presenter itself to its underlying model. In addition, the Presenter
+class contains an instance of a `Presenters::Helpers` object, which
+mixes in `ActionView::Helpers` as well as any modules you define in
+`Rails.application.config.presenters.helpers`.
+
+This library is also capable of presenting entire collections of
+objects. You can opt to present the collection object itself (like
+in cases of pagination), or the objects within it. Collection presenters
+derive from `Presenters::CollectionPresenter`, and in your application
+the base collection presenter is called `CollectionPresenter`.
+These types of objects can be generated using the `--collection` flag on
+the presenter generator (as described below), but they're also generated
+automatically when you pass a plural name into the presenter generator.
+Collection presenters are [Enumerable][] objects, and when iterating
+over their `model`, all records inside the collection are decorated
+prior to returning to the caller.
+
+### Generating Presenters
+
+To generate a presenter, run the following command:
+
+```bash
+$ bin/rails generate presenter post
+```
+
+This will generate **app/presenters/post_presenter.rb** as a subclass fo
+`ApplicationPresenter`. It will also generate a test file in
+**test/presenters/post_presenter_test.rb** or
+**spec/presenters/post_presenter_spec.rb**.
+
+A typical presenter might look like this:
+
+```ruby
+class PostPresenter < ApplicationPresenter
+  def title
+    model.name.titleize
+  end
+
+  def cover_image
+    h.image_tag model.cover_image_url
+  end
+end
+```
+
+You can also generate collection presenters using this generator. This
+can be done in one of two ways, either by passing a plural name into the
+generator:
+
+```bash
+$ bin/rails generate presenter posts
+```
+
+Or, by passing the `--collection` option in the generator arguments:
+
+```bash
+$ bin/rails generate presenter query --collection
+```
+
+This will generate a presenter class that is subclassed from
+`CollectionPresenter`, rather than `ApplicationPresenter`.
+
+### Configuring Presenters
+
+To mix helper modules into your presenters, add the following to your
+**config/application.rb**:
+
+```ruby
+config.presenters.helpers << Refile::AttachmentHelper # or whatever module you want
+```
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'presenters'
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
+Or install it yourself as:
+```bash
+$ gem install presenters
+```
+
+## Contributing
+
+All contributions to this library must follow the [Code of Conduct][].
+Please follow the instructions laid out in the issue and pull request
+template for proper description formatting. We use [GitHub Issues][] as
+a bug tracker, and only accept code contributions in the form of GitHub
+Pull Requests.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License][].
+
+[decorator]: https://en.wikipedia.org/wiki/Decorator_pattern
+[Rails]: http://rubyonrails.org
+[Draper]: http://github.com/drapergem/draper
+[ActiveSupport]: https://github.com/rails/rails/tree/master/activesupport
+[stdlib]: http://ruby-doc.org
+[Delegator]: http://ruby-doc.org/stdlib-2.2.1/libdoc/delegate/rdoc/Delegator.html
+[Enumerable]: http://ruby-doc.org/core-2.2.1/Enumerable.html
+[Code of Conduct]: https://github.com/tubbo/presenters/master/CODE_OF_CONDUCT.md
+[GitHub Issues]: https://github.com/tubbo/presenters/issues
+[MIT License]: http://opensource.org/licenses/MIT
