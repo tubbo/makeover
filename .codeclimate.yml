@@ -2,6 +2,8 @@
 engines:
   brakeman:
     enabled: true
+  bundler_audit:
+    enabled: true
   duplication:
     enabled: true
     config:
