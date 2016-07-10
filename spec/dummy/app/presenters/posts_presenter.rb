@@ -1,0 +1,2 @@
+class PostsPresenter < CollectionPresenter
+end

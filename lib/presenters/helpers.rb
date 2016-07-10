@@ -1,7 +1,6 @@
 module Presenters
   class Helpers
     include ActionView::Helpers
-    include Refile::AttachmentHelper
 
     def initialize
       @routes = Rails.application.routes.url_helpers

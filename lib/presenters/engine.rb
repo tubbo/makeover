@@ -5,9 +5,5 @@ module Presenters
     config.presenters.helpers = [
       ActionView::Helpers
     ]
-
-    config.to_prepare do
-      using Presenters::Relation
-    end
   end
 end

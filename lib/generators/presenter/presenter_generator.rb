@@ -1,6 +1,6 @@
 class PresenterGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
-  method_option :collection, type: :boolean, default: false
+  class_option :collection, type: :boolean, default: false
 
   def copy_presenter
     if collection?

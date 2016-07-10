@@ -1,0 +1,2 @@
+class PostPresenter < ApplicationPresenter
+end

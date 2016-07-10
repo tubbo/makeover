@@ -15,3 +15,5 @@ module Presenters
     Rails.application.config.presenters
   end
 end
+
+using Presenters::Relation
