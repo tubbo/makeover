@@ -7,7 +7,7 @@ module Presenters
     attr_accessor :name, :description
   end
 
-  class TestPresenter < Presenter
+  class TestModelPresenter < Presenter
     attr_reader :optional
 
     def title

@@ -6,7 +6,7 @@ module Presenters
     subject { TestModel.new }
 
     it 'can be presented' do
-      expect(subject.present).to eq(TestPresenter)
+      expect(subject.present).to be_a(TestModelPresenter)
     end
   end
 end

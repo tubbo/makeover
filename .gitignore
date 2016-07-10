@@ -9,3 +9,5 @@ vendor/bundle
 tags
 .yardoc/
 doc/
+spec/examples.txt
+tmp/

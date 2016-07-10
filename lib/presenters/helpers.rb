@@ -35,13 +35,13 @@ module Presenters
     # @private
     # @return [Boolean] Test whether this method is a view helper.
     def helper?(method)
-      @helpers.respond_to_missing? method
+      @helpers.respond_to? method
     end
 
     # @private
     # @return [Boolean] Test whether this method is a route helper.
     def route?(method)
-      @routes.respond_to_missing? method
+      @routes.respond_to? method
     end
   end
 end

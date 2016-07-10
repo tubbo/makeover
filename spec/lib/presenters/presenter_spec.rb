@@ -12,7 +12,7 @@ module Presenters
     end
 
     subject :presenter do
-      TestPresenter.new model, optional: optional_value
+      TestModelPresenter.new model, optional: optional_value
     end
 
     it 'wraps model' do
