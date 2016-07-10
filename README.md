@@ -41,7 +41,7 @@ end
 
 It is recommended to choose one syntax and make that standard across
 your app, however both syntaxes are provided in case one or the other
-works out better for you. Conventionally, presenter classess are found
+works out better for you. Conventionally, presenter classes are found
 by taking the model name and adding "Presenter" to the end, or in the
 case of collections, pluralizing the model name and then suffixing with
 "Presenter". You can customize this by passing the `with:` option into
