@@ -1,15 +1,25 @@
 # frozen_string_literal: true
-# This file is copied to spec/ when you run 'rails generate rspec:install'
+
+
+# Configure boot environment
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('dummy/config/environment', __dir__)
 $LOAD_PATH << File.expand_path('../lib', __dir__)
+
+# Configure Test Coverage Reporting
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 # Prevent database truncation if the environment is production
 if Rails.env.production?
   abort('The Rails environment is running in production mode!')
 end
+
+# Load library
 require 'presenters'
+
+# Load test framework
 require 'rspec/rails'
-# Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'generator_spec'
