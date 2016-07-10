@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'generators/presenter/presenter_generator'
 
 RSpec.describe PresenterGenerator, type: :generator do
   before :all do
