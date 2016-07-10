@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.3.1
+cache: bundle
+script: bin/rails test
+deploy:
+  provider: rubygems
+  api_key:
+    secure: qycHCapF/dwVAMBABf3gHcLkxCMBES0r+pFqLKAiymw4F7q0Nj0Aok6tmO/1VNBvPrbq8tdsZn4ANbIxMMjRA2/2SkMMwatDC0FEB2h77SN0RTXB8kO9ni6o/IU66fYe64KIepc99ls5MyT5xKXeC71TksYO7CdcZiJhg5MmSaygbesFSgOLZJCttsqnM/VePQabDLPfia3xjSey8H3mSRPqptrdjBsG0RNMpy6f32lQFA+f27aYA8GIMkuxaRZjzJ6TDLCs6kAXJpHNf1qTsb393q1Njmymy5Gql07bocfW3iNrra7nAOGUBrCtAv7vWVq9Hq5mY/zmMONL2ugsIMeEOMSYyKYYtTFDqFAMH6MLROVtAFkTfNPyk1diFG/rwbLMSJZz64+eZGOO+foqCYTiqddtVr3Vrf9aE7kO+j86JsUKuhfCd15qolrcxPX0qhSosLw+4h7tb8fwxLAyCiq9luYSTyG2EfTmoLM4kGZf2jrozHiBzFtUXy1gEekZKzmbbebnRpbTymBpZyLTsjuDMu5pegumaAl2P0PYcOTfqOrBw+uM7LDNeJxe75bdOrT3LaAdTZRIoKvdVlhoO3p1r0zMAoEbK0wHtJqkLsYFdvijunMDRWqLFITF1E3kqUPZIpNGoC2NfX4Ej02SvASt82WxIH9OxcaJdgEbX0g=
+  gem: presenters
+  on:
+    tags: true
+    repo: tubbo/presenters

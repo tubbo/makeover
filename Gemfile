@@ -12,3 +12,5 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+gem 'travis-release', github: 'tubbo/travis-release', branch: 'master'
