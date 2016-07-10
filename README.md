@@ -1,5 +1,10 @@
 # Presenters
 
+[![Build Status](https://travis-ci.org/tubbo/presenters.svg?branch=master)](https://travis-ci.org/tubbo/presenters)
+[![Code Climate](https://codeclimate.com/github/tubbo/presenters/badges/gpa.svg)](https://codeclimate.com/github/tubbo/presenters)
+[![Issue Count](https://codeclimate.com/github/tubbo/presenters/badges/issue_count.svg)](https://codeclimate.com/github/tubbo/presenters)
+[![Test Coverage](https://codeclimate.com/github/tubbo/presenters/badges/coverage.svg)](https://codeclimate.com/github/tubbo/presenters/coverage)
+
 A [decorator][] library for [Rails][] applications, inspired by
 [Draper][], but with an emphasis on architectural simplicity. Presenters
 uses the given [ActiveSupport][] and [Ruby standard library][stdlib]
