@@ -6,28 +6,18 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
-      - javascript
-      - python
-      - php
+        - ruby
   fixme:
     enabled: true
   rubocop:
     enabled: true
+  reek:
+    enabled: true
 ratings:
   paths:
-  - Gemfile.lock
-  - "**.erb"
-  - "**.haml"
-  - "**.rb"
-  - "**.rhtml"
-  - "**.slim"
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
+    - Gemfile.lock
+    - "**.erb"
+    - "**.rb"
 exclude_paths:
-- config/
-- spec/
+  - config/
+  - spec/
