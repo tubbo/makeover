@@ -41,7 +41,28 @@ end
 
 It is recommended to choose one syntax and make that standard across
 your app, however both syntaxes are provided in case one or the other
-works out better for you.
+works out better for you. Conventionally, presenter classess are found
+by taking the model name and adding "Presenter" to the end, or in the
+case of collections, pluralizing the model name and then suffixing with
+"Presenter". You can customize this by passing the `with:` option into
+the `#present` method:
+
+```ruby
+@post.present with: SearchResultPresenter
+```
+
+You can also use this options hash to apply context into the presenter.
+A call to `#present` like this:
+
+```ruby
+@post.present with: SearchResultPresenter, search: @search
+```
+
+Will result in the following instantiation:
+
+```ruby
+SearchResultPresenter.new(@post, search: @search)
+```
 
 ### The Presenter Class
 
