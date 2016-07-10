@@ -5,7 +5,7 @@ module Presenters
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path('../templates', __FILE__)
 
-    MIXIN = "\n\s\sinclude Presenters::Presentable\n"
+    MIXIN = "\n\s\sinclude Presenters::Presentable\n".freeze
 
     def copy_presenters
       %w(application collection).each do |type|

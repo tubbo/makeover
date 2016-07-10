@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-
 # Configure boot environment
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('dummy/config/environment', __dir__)
 $LOAD_PATH << File.expand_path('../lib', __dir__)
 
 # Configure Test Coverage Reporting
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 
 # Prevent database truncation if the environment is production
