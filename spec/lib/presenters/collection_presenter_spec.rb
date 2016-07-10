@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 module Presenters
   RSpec.describe CollectionPresenter do
     let :models do
       [
-        TestModel.new(name: 'test1', description: 'booyah')
-        TestModel.new(name: 'test2', description: 'booyah')
+        TestModel.new(name: 'test1', description: 'booyah'),
+        TestModel.new(name: 'test2', description: 'booyah'),
         TestModel.new(name: 'test3', description: 'booyah')
       ]
     end

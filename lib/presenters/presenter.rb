@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module Presenters
+  # Base Presenter class for all decorator objects.
   class Presenter < Delegator
     attr_reader :model
 
@@ -11,7 +12,7 @@ module Presenters
     end
 
     def self.delegate(*methods, to: :model, **options)
-      super *methods, to: to, **options
+      super(*methods, to: to, **options)
     end
 
     def self.delegate_all

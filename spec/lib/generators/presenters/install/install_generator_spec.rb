@@ -9,8 +9,14 @@ module Presenters
 
       assert_file 'app/presenters/application_presenter.rb'
       assert_file 'app/presenters/collection_presenter.rb'
-      assert_file 'app/controllers/application_controller.rb', 'Presenters::Presentable'
-      assert_file 'app/models/application_record.rb', 'Presenters::Presentable'
+      assert_file(
+        'app/controllers/application_controller.rb',
+        'Presenters::Presentable'
+      )
+      assert_file(
+        'app/models/application_record.rb',
+        'Presenters::Presentable'
+      )
     end
   end
 end

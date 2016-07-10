@@ -15,7 +15,13 @@ Gem::Specification.new do |s|
   s.description = "#{s.summary} Extracted from brother.ly."
   s.license     = 'MIT'
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
+  s.files = Dir[
+    'lib/**/*',
+    'Rakefile',
+    'LICENSE.md',
+    'CODE_OF_CONDUCT.md',
+    'README.md'
+  ]
 
   s.add_dependency 'rails' # , "~> 5.0.0"
 

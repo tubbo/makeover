@@ -1,22 +1,19 @@
 # frozen_string_literal: true
+
+# Generates a presenter. More info: +rails g presenter --help+.
 class PresenterGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
   class_option :collection, type: :boolean, default: false
 
   def copy_presenter
-    if collection?
-      template 'collection_presenter.rb.erb', "app/presenters/#{file_name}_presenter.rb"
-    else
-      template 'presenter.rb.erb', "app/presenters/#{file_name}_presenter.rb"
-    end
+    template "#{presenter}.rb.erb", "app/presenters/#{file_name}_presenter.rb"
   end
 
   def copy_test
-    if Dir.exist? Rails.root.join('spec').to_s
-      template 'spec.rb.erb', "spec/presenters/#{file_name}_presenter_spec.rb"
-    else
-      template 'test.rb.erb', "test/presenters/#{file_name}_presenter_test.rb"
-    end
+    template(
+      "#{test}.rb.erb",
+      "#{test}/presenters/#{file_name}_presenter_#{test}.rb"
+    )
   end
 
   private
@@ -27,5 +24,13 @@ class PresenterGenerator < Rails::Generators::NamedBase
 
   def plural?
     file_name == file_name.pluralize
+  end
+
+  def presenter_template
+    collection? ? 'collection_presenter' : 'presenter'
+  end
+
+  def test
+    Dir.exist?(Rails.root.join('spec').to_s) ? 'spec' : 'test'
   end
 end

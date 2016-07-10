@@ -2,6 +2,7 @@
 require 'presenters/engine'
 require 'presenters/version'
 
+# A simple view model library for Rails applications.
 module Presenters
   extend ActiveSupport::Autoload
 
