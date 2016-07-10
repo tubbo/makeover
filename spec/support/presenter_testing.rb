@@ -1,6 +1,8 @@
 module Presenters
   class TestModel
     include ActiveModel::Model
+    include Presentable
+
     attr_accessor :name, :description
   end
 
