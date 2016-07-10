@@ -7,3 +7,5 @@ spec/dummy/log/*.log
 spec/dummy/tmp/
 vendor/bundle
 tags
+.yardoc/
+doc/

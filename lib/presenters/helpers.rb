@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Presenters
   # Access view and route helpers from within the presenters.
   class Helpers

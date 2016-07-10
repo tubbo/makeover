@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Presenters
   # Presents +ActiveRecord::Relation+ objects as collections of
   # presented models.

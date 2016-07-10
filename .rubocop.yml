@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - 'vendor/bundle/**/*'
+    - 'spec/dummy/**/*'
+
+# Offense count: 8
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*'

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Presenters
   class Presenter < Delegator
     attr_reader :model
@@ -24,6 +25,6 @@ module Presenters
     def helpers
       @helpers ||= Helpers.new
     end
-    alias_method :h, :helpers
+    alias h helpers
   end
 end
