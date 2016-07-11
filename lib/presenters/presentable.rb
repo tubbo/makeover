@@ -19,7 +19,7 @@ module Presenters
     # @param [Array<Hash>] **context - Additional context for the presenter.
     def present(model = nil, with: nil, **context)
       model ||= self
-      current_presenter = with || collection_presenter || presenter
+      current_presenter = with || collection_presenter_for(model) || presenter
       current_presenter.new model, **context
     end
 
@@ -34,7 +34,7 @@ module Presenters
         "#{presentable_class_name}Presenter".constantize
     end
 
-    def collection_presenter
+    def collection_presenter_for(model)
       return unless model.is_a? ActiveRecord::Relation
       self.class.collection_presenter_class ||
         "#{presentable_class_name.pluralize}Presenter".constantize
