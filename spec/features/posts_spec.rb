@@ -12,7 +12,7 @@ RSpec.feature 'Posts', type: :feature do
     visit posts_path(post)
 
     expect(page).to have_content(post.present.title)
-    expect(page).to have_content(post.present.body)
+    expect(page).to have_content(post.body)
   end
 
   scenario 'decorated from the model level' do

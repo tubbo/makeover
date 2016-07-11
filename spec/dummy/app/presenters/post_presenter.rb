@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class PostPresenter < ApplicationPresenter
   def title
-    h.sanitize name.titleize
+    name.titleize
   end
 
   def body

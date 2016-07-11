@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all.present
+    @posts = present Post.all
   end
 
   # GET /posts/1

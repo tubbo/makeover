@@ -18,6 +18,7 @@ end
 require 'presenters'
 
 # Load test framework
+require 'pry'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'

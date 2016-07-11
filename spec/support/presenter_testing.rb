@@ -1,21 +1,22 @@
 # frozen_string_literal: true
-module Presenters
-  class TestModel
-    include ActiveModel::Model
-    include Presentable
+class TestModel
+  include ActiveModel::Model
+  include Presenters::Presentable
 
-    attr_accessor :name, :description
+  attr_accessor :name, :description
+end
+
+class TestModelsPresenter < Presenters::CollectionPresenter
+end
+
+class TestModelPresenter < Presenters::Presenter
+  attr_reader :optional
+
+  def title
+    name.titleize
   end
 
-  class TestModelPresenter < Presenter
-    attr_reader :optional
-
-    def title
-      name.titleize
-    end
-
-    def description
-      model.description.upcase
-    end
+  def description
+    model.description.upcase
   end
 end

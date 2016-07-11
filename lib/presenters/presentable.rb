@@ -6,6 +6,8 @@ module Presenters
 
     included do
       class_attribute :presenter_class
+      class_attribute :collection_presenter_class
+
       alias_method :decorate, :present
     end
 
@@ -17,7 +19,7 @@ module Presenters
     # @param [Array<Hash>] **context - Additional context for the presenter.
     def present(model = nil, with: nil, **context)
       model ||= self
-      current_presenter = with || presenter
+      current_presenter = with || (collection_presenter if model.is_a?(ActiveRecord::Relation)) || presenter
       current_presenter.new model, **context
     end
 
@@ -28,7 +30,19 @@ module Presenters
     #                 on the class level by setting
     #                 +self.presenter_class+.
     def presenter
-      self.class.presenter_class || "#{self.class.name}Presenter".constantize
+      self.class.presenter_class || "#{presentable_class_name}Presenter".constantize
+    end
+
+    def collection_presenter
+      self.class.collection_presenter_class || "#{presentable_class_name.pluralize}Presenter".constantize
+    end
+
+    def presentable_class_name
+      if respond_to? :controller_name
+        controller_name.classify
+      else
+        self.class.name
+      end
     end
   end
 end

@@ -16,7 +16,6 @@ module Presenters
     private
 
     def presenter
-      binding.pry if configured_presenter_name == 'S'
       configured_presenter_name.constantize
     end
 
@@ -25,7 +24,7 @@ module Presenters
     end
 
     def model_class_name
-      self.class.name.gsub(/Presenter/, '').classify
+      self.class.name.demodulize.gsub(/Presenter/, '').classify
     end
   end
 end

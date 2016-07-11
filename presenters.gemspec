@@ -34,4 +34,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'yard'
   s.add_development_dependency 'travis-release'
   s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'pry-byebug'
 end

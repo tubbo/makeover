@@ -10,8 +10,4 @@ RSpec.describe Presenters do
     expect(described_class).to be_const_defined(:Helpers)
     expect(described_class).to be_const_defined(:Relation)
   end
-
-  it 'refines relation object' do
-    expect(ActiveRecord::Relation.ancestors).to include(Presenters::Relation)
-  end
 end

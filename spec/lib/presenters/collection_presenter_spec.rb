@@ -12,7 +12,7 @@ module Presenters
     end
 
     subject :presenter do
-      described_class.new models
+      TestModelsPresenter.new models
     end
 
     it 'presents a collection of models' do
