@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - 2.3.1
-cache: bundle
+cache: bundler
 before_script: bin/rake db:setup
 script: bin/rake
 deploy:
