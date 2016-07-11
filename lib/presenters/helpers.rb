@@ -9,7 +9,9 @@ module Presenters
     def initialize
       self.class.send :include, Rails.application.routes.url_helpers
       self.class.send :include, Rails.application.helpers
-      Rails.configuration.presenters.helpers.each { |helper| self.class.send :include, helper }
+      Rails.configuration.presenters.helpers.each do |helper|
+        self.class.send :include, helper
+      end
     end
   end
 end

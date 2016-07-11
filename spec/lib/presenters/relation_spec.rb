@@ -13,7 +13,6 @@ module Presenters
       ActiveRecord::Relation.new Post, 'posts', builder
     end
 
-
     xit 'refines ActiveRecord::Relation to provide #present method' do
       expect(relation).to respond_to(:presenter)
       expect(relation).to respond_to(:present)
