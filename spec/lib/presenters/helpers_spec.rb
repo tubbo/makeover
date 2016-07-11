@@ -6,11 +6,13 @@ module Presenters
     subject { described_class.new }
 
     it 'delegates to rails app routes' do
-      expect(subject).to respond_to(:root_path)
+      expect(subject.posts_path).to eq '/posts'
     end
 
     it 'includes helper methods' do
-      expect(subject).to respond_to(:link_to)
+      expect(subject.link_to('test', 'http://example.com')).to eq(
+        %(<a href="http://example.com">test</a>).html_safe
+      )
     end
   end
 end
