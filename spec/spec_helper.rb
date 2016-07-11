@@ -148,8 +148,4 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
-
-  config.before :all, type: :generator do
-    prepare_destination File.expand_path('../tmp', __dir__)
-  end
 end

@@ -17,8 +17,6 @@ module Presenters
 
     it 'presents a collection of models' do
       expect(subject).to respond_to(:each)
-      expect(subject).to respond_to(:where)
-      expect(subject).to respond_to(:find)
     end
 
     it 'decorates collection of models' do

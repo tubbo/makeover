@@ -26,7 +26,7 @@ class PresenterGenerator < Rails::Generators::NamedBase
     file_name == file_name.pluralize
   end
 
-  def presenter_template
+  def presenter
     collection? ? 'collection_presenter' : 'presenter'
   end
 

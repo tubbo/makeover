@@ -16,6 +16,7 @@ module Presenters
     private
 
     def presenter
+      binding.pry if configured_presenter_name == 'S'
       configured_presenter_name.constantize
     end
 

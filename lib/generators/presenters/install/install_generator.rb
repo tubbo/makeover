@@ -18,12 +18,12 @@ module Presenters
         'app/models/application_record.rb',
         MIXIN,
         after: "self.abstract_class = true\n"
-      ) if File.exist? Rails.root.join('app/models/application_record.rb')
+      )
       insert_into_file(
         'app/controllers/application_controller.rb',
         MIXIN,
         after: "class ApplicationController < ActionController::Base\n"
-      ) if File.exist? Rails.root.join('app/controllers/application_controller.rb')
+      )
     end
   end
 end
