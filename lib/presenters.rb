@@ -18,4 +18,6 @@ module Presenters
   end
 end
 
-using Presenters::Relation
+if defined? ActiveRecord
+  using Presenters::Relation
+end

@@ -9,7 +9,10 @@ module Presenters
 
     def copy_presenters
       %w(application collection).each do |type|
-        copy_file "#{type}_presenter.rb", "app/presenters/#{type}_presenter.rb"
+        filename = "app/presenters/#{type}_presenter.rb"
+        if File.exist? Rails.root.join(filename).to_s
+          copy_file "#{type}_presenter.rb", filename
+        end
       end
     end
 
