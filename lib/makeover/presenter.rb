@@ -6,8 +6,10 @@ module Makeover
     #   @return [Object] Object being delegated to.
     attr_reader :model
 
-    # @param [Object] model - Model to present.
-    # @option [Hash] context - Extra context for the presenter.
+    # Wrap a new model as a presenter object.
+    #
+    # @param model [Object] Model object to wrap.
+    # @param **context [Hash] Extra context for the presenter.
     def initialize(model, **context)
       @model = model
       context.each do |option, value|
