@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require 'spec_helper'
-require 'generators/presenters/install/install_generator'
+require 'generators/makeover/install/install_generator'
 
-module Presenters
+module Makeover
   RSpec.describe InstallGenerator, type: :generator do
     destination File.expand_path('../../../../../tmp', __dir__)
 
@@ -22,11 +22,11 @@ module Presenters
     end
 
     it 'installs base model presenter' do
-      assert_file 'app/presenters/application_presenter.rb'
+      assert_file 'app/makeover/application_presenter.rb'
     end
 
     it 'installs base collection presenter' do
-      assert_file 'app/presenters/collection_presenter.rb'
+      assert_file 'app/makeover/collection_presenter.rb'
     end
 
     it 'injects mixin into controller' do
@@ -35,7 +35,7 @@ module Presenters
         <<-RUBY
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
-  include Presenters::Presentable
+  include Makeover::Presentable
   protect_from_forgery with: :exception
 end
 RUBY
@@ -50,7 +50,7 @@ RUBY
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  include Presenters::Presentable
+  include Makeover::Presentable
 end
 RUBY
       )

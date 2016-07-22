@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-require 'presenters/engine'
-require 'presenters/version'
+require 'makeover/engine'
+require 'makeover/version'
 
 # A simple view model library for Rails applications.
-module Presenters
+module Makeover
   extend ActiveSupport::Autoload
 
   autoload :Helpers
@@ -12,8 +12,8 @@ module Presenters
   autoload :Presentable
   autoload :Relation
 
-  # Presenters configuration.
+  # Makeover configuration.
   def self.config
-    Rails.application.config.presenters
+    Rails.application.config.makeover
   end
 end

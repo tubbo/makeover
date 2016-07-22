@@ -15,7 +15,7 @@ if Rails.env.production?
 end
 
 # Load library
-require 'presenters'
+require 'makeover'
 
 # Load test framework
 require 'pry'

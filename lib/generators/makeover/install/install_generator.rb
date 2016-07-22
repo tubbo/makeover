@@ -1,15 +1,15 @@
 # frozen_string_literal: true
-module Presenters
-  # Install the presenters library.
-  # More info: +rails g presenters:install --help+
+module Makeover
+  # Install the makeover library.
+  # More info: +rails g makeover:install --help+
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path('../templates', __FILE__)
 
-    MIXIN = "\n\s\sinclude Presenters::Presentable\n"
+    MIXIN = "\n\s\sinclude Makeover::Presentable\n"
 
-    def copy_presenters
+    def copy_makeover
       %w(application collection).each do |type|
-        filename = "app/presenters/#{type}_presenter.rb"
+        filename = "app/makeover/#{type}_presenter.rb"
         if File.exist? Rails.root.join(filename).to_s
           copy_file "#{type}_presenter.rb", filename
         end

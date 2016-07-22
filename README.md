@@ -1,12 +1,12 @@
-# Presenters
+# Makeover
 
-[![Build Status](https://travis-ci.org/tubbo/presenters.svg?branch=master)](https://travis-ci.org/tubbo/presenters)
-[![Code Climate](https://codeclimate.com/github/tubbo/presenters/badges/gpa.svg)](https://codeclimate.com/github/tubbo/presenters)
-[![Issue Count](https://codeclimate.com/github/tubbo/presenters/badges/issue_count.svg)](https://codeclimate.com/github/tubbo/presenters)
-[![Test Coverage](https://codeclimate.com/github/tubbo/presenters/badges/coverage.svg)](https://codeclimate.com/github/tubbo/presenters/coverage)
+[![Build Status](https://travis-ci.org/tubbo/makeover.svg?branch=master)](https://travis-ci.org/tubbo/makeover)
+[![Code Climate](https://codeclimate.com/github/tubbo/makeover/badges/gpa.svg)](https://codeclimate.com/github/tubbo/makeover)
+[![Issue Count](https://codeclimate.com/github/tubbo/makeover/badges/issue_count.svg)](https://codeclimate.com/github/tubbo/makeover)
+[![Test Coverage](https://codeclimate.com/github/tubbo/makeover/badges/coverage.svg)](https://codeclimate.com/github/tubbo/makeover/coverage)
 
 A [decorator][] library for [Rails][] applications, inspired by
-[Draper][], but with an emphasis on architectural simplicity. Presenters
+[Draper][], but with an emphasis on architectural simplicity. Makeover
 uses the given [ActiveSupport][] and [Ruby standard library][stdlib]
 objects that can help in building an object-presentation layer for your
 models.
@@ -16,10 +16,10 @@ models.
 After installing, run the following command to get things set up:
 
 ```bash
-$ bin/rails presenters:install
+$ bin/rails makeover:install
 ```
 
-This will mix in the `Presenters::Presentable` module into your
+This will mix in the `Makeover::Presentable` module into your
 `ApplicationRecord` model code, enabling models to be presented by
 calling `model.present`. This module is also mixed into your
 `ApplicationController`, because the `present` method can be called with
@@ -27,7 +27,7 @@ an optional first argument that dictates the model being presented. In
 addition to mixing itself in (visibly) to your controller and model
 layer, this generator also creates an `ApplicationPresenter` and
 `CollectionPresenter` base class for presenting models and collections,
-respectively. All presenters will be derived from one of these base
+respectively. All makeover will be derived from one of these base
 classes.
 
 In your application code, presentation would look like the following:
@@ -71,28 +71,28 @@ SearchResultPresenter.new(@post, search: @search)
 
 ### The Presenter Class
 
-Presenters are subclasses of `Presenters::Presenter`, which itself
+Makeover are subclasses of `Makeover::Presenter`, which itself
 subclasses (and implements [Delegator][]. The Delegator API was designed
 specifically for implementing decorator objects such as this, and it's
 utilized here to delegate all method calls not implemented on the
 presenter itself to its underlying model. In addition, the Presenter
-class contains an instance of a `Presenters::Helpers` object, which
+class contains an instance of a `Makeover::Helpers` object, which
 mixes in `ActionView::Helpers` as well as any modules you define in
-`Rails.application.config.presenters.helpers`.
+`Rails.application.config.makeover.helpers`.
 
 This library is also capable of presenting entire collections of
 objects. You can opt to present the collection object itself (like
-in cases of pagination), or the objects within it. Collection presenters
-derive from `Presenters::CollectionPresenter`, and in your application
+in cases of pagination), or the objects within it. Collection makeover
+derive from `Makeover::CollectionPresenter`, and in your application
 the base collection presenter is called `CollectionPresenter`.
 These types of objects can be generated using the `--collection` flag on
 the presenter generator (as described below), but they're also generated
 automatically when you pass a plural name into the presenter generator.
-Collection presenters are [Enumerable][] objects, and when iterating
+Collection makeover are [Enumerable][] objects, and when iterating
 over their `model`, all records inside the collection are decorated
 prior to returning to the caller.
 
-### Generating Presenters
+### Generating Makeover
 
 To generate a presenter, run the following command:
 
@@ -100,10 +100,10 @@ To generate a presenter, run the following command:
 $ bin/rails generate presenter post
 ```
 
-This will generate **app/presenters/post_presenter.rb** as a subclass fo
+This will generate **app/makeover/post_presenter.rb** as a subclass fo
 `ApplicationPresenter`. It will also generate a test file in
-**test/presenters/post_presenter_test.rb** or
-**spec/presenters/post_presenter_spec.rb**.
+**test/makeover/post_presenter_test.rb** or
+**spec/makeover/post_presenter_spec.rb**.
 
 A typical presenter might look like this:
 
@@ -119,7 +119,7 @@ class PostPresenter < ApplicationPresenter
 end
 ```
 
-You can also generate collection presenters using this generator. This
+You can also generate collection makeover using this generator. This
 can be done in one of two ways, either by passing a plural name into the
 generator:
 
@@ -136,13 +136,13 @@ $ bin/rails generate presenter query --collection
 This will generate a presenter class that is subclassed from
 `CollectionPresenter`, rather than `ApplicationPresenter`.
 
-### Configuring Presenters
+### Configuring Makeover
 
-To mix helper modules into your presenters, add the following to your
+To mix helper modules into your makeover, add the following to your
 **config/application.rb**:
 
 ```ruby
-config.presenters.helpers << Refile::AttachmentHelper # or whatever module you want
+config.makeover.helpers << Refile::AttachmentHelper # or whatever module you want
 ```
 
 ## Installation
@@ -150,7 +150,7 @@ config.presenters.helpers << Refile::AttachmentHelper # or whatever module you w
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'presenters'
+gem 'makeover'
 ```
 
 And then execute:
@@ -160,7 +160,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install presenters
+$ gem install makeover
 ```
 
 ## Contributing
@@ -182,6 +182,6 @@ The gem is available as open source under the terms of the [MIT License][].
 [stdlib]: http://ruby-doc.org
 [Delegator]: http://ruby-doc.org/stdlib-2.2.1/libdoc/delegate/rdoc/Delegator.html
 [Enumerable]: http://ruby-doc.org/core-2.2.1/Enumerable.html
-[Code of Conduct]: https://github.com/tubbo/presenters/master/CODE_OF_CONDUCT.md
-[GitHub Issues]: https://github.com/tubbo/presenters/issues
+[Code of Conduct]: https://github.com/tubbo/makeover/master/CODE_OF_CONDUCT.md
+[GitHub Issues]: https://github.com/tubbo/makeover/issues
 [MIT License]: http://opensource.org/licenses/MIT

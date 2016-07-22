@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-module Presenters
+module Makeover
   # Rails integration for the library. Sets up configuration.
   class Engine < ::Rails::Engine
-    config.presenters = ActiveSupport::OrderedOptions.new
-    config.presenters.helpers = []
+    config.makeover = ActiveSupport::OrderedOptions.new
+    config.makeover.helpers = []
   end
 end

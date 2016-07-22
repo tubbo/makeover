@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 class ApplicationController < ActionController::Base
-  include Presenters::Presentable
+  include Makeover::Presentable
   protect_from_forgery with: :exception
 end

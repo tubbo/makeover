@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Presenters
+module Makeover
   # Controller and model mixin for presenting objects.
   module Presentable
     extend ActiveSupport::Concern

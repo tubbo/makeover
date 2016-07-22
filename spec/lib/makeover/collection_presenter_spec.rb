@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-module Presenters
+module Makeover
   RSpec.describe CollectionPresenter do
     let :models do
       [
@@ -20,7 +20,7 @@ module Presenters
     end
 
     it 'decorates collection of models' do
-      expect(subject.first).to be_a(Presenters::Presenter)
+      expect(subject.first).to be_a(Makeover::Presenter)
     end
   end
 end

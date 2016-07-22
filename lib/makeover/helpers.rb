@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-module Presenters
-  # Access view and route helpers from within the presenters.
+module Makeover
+  # Access view and route helpers from within the makeover.
   class Helpers
     include ActionView::Helpers
 
@@ -9,7 +9,7 @@ module Presenters
     def initialize
       self.class.send :include, Rails.application.routes.url_helpers
       self.class.send :include, Rails.application.helpers
-      Rails.configuration.presenters.helpers.each do |helper|
+      Rails.configuration.makeover.helpers.each do |helper|
         self.class.send :include, helper
       end
     end

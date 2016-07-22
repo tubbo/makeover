@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-module Presenters
+module Makeover
   RSpec.describe Relation do
     using Relation
 

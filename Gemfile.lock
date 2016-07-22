@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    presenters (1.0.0.rc1)
+    makeover (1.0.0.rc1)
       rails
 
 GEM
@@ -190,7 +190,7 @@ DEPENDENCIES
   generator_spec
   pg
   poltergeist
-  presenters!
+  makeover!
   pry-byebug
   rspec-rails
   rubocop

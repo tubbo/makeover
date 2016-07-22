@@ -1,0 +1,13 @@
+Description:
+    Install the Makeover library into your Rails application.
+
+Example:
+    rails generate makeover:install
+
+    This will create:
+        app/makeover/application_presenter.rb
+        app/makeover/collection_presenter.rb
+
+    This will also edit the following files:
+        app/controllers/application_controller.rb
+        app/models/application_record.rb

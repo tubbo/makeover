@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-module Presenters
+module Makeover
   RSpec.describe Helpers do
     subject { described_class.new }
 

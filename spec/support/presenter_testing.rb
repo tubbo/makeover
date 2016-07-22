@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 class TestModel
   include ActiveModel::Model
-  include Presenters::Presentable
+  include Makeover::Presentable
 
   attr_accessor :name, :description
 end
 
-class TestModelsPresenter < Presenters::CollectionPresenter
+class TestModelsPresenter < Makeover::CollectionPresenter
 end
 
-class TestModelPresenter < Presenters::Presenter
+class TestModelPresenter < Makeover::Presenter
   attr_reader :optional
 
   def title

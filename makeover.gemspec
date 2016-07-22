@@ -2,15 +2,15 @@
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'presenters/version'
+require 'makeover/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'presenters'
-  s.version     = Presenters::VERSION
+  s.name        = 'makeover'
+  s.version     = Makeover::VERSION
   s.authors     = ['Tom Scott']
   s.email       = ['tscott@weblinc.com']
-  s.homepage    = 'http://github.com/tubbo/presenters'
+  s.homepage    = 'http://github.com/tubbo/makeover'
   s.summary     = 'View model library for Rails applications.'
   s.description = "#{s.summary} Extracted from brother.ly."
   s.license     = 'MIT'

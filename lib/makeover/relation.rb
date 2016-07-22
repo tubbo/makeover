@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-module Presenters
+module Makeover
   # Refines +ActiveRecord::Relation+ to provide a +#presenter+ method.
   module Relation
     refine ActiveRecord::Relation do
-      prepend Presenters::Presentable
+      prepend Makeover::Presentable
 
       def presenter
         if to_sql =~ /FROM "(.*)"/

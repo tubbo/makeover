@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require 'spec_helper'
-require 'presenters'
+require 'makeover'
 
-RSpec.describe Presenters do
+RSpec.describe Makeover do
   it 'autoloads objects' do
     expect(described_class).to be_const_defined(:Presenter)
     expect(described_class).to be_const_defined(:CollectionPresenter)

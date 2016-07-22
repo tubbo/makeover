@@ -5,5 +5,5 @@ Example:
     rails generate presenter Artist
 
     This will create:
-        app/presenters/artist_presenter.rb
-        spec/presenters/artist_presenter_spec.rb
+        app/makeover/artist_presenter.rb
+        spec/makeover/artist_presenter_spec.rb

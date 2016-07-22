@@ -6,13 +6,13 @@ class PresenterGenerator < Rails::Generators::NamedBase
   class_option :collection, type: :boolean, default: false
 
   def copy_presenter
-    template "#{presenter}.rb.erb", "app/presenters/#{file_name}_presenter.rb"
+    template "#{presenter}.rb.erb", "app/makeover/#{file_name}_presenter.rb"
   end
 
   def copy_test
     template(
       "#{test}.rb.erb",
-      "#{test}/presenters/#{file_name}_presenter_#{test}.rb"
+      "#{test}/makeover/#{file_name}_presenter_#{test}.rb"
     )
   end
 

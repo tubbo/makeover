@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Presenters
+module Makeover
   # Base Presenter class for all decorator objects.
   class Presenter < Delegator
     attr_reader :model
