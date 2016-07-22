@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 require 'makeover/engine'
 require 'makeover/version'
 

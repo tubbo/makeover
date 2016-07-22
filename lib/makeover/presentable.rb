@@ -30,11 +30,13 @@ module Makeover
       end
     end
 
-    class_methods do
+    # :nodoc:
+    # @!parse extend Makeover::Presentable::ClassMethods
+    module ClassMethods
       # Configure the class used to present records by default
       # within this object.
       #
-      # @param [Class] custom_presenter_class
+      # @param custom_presenter_class [Class]
       def presented_by(custom_presenter_class)
         self.presenter_class = custom_presenter_class
       end
@@ -42,7 +44,7 @@ module Makeover
       # Configure the class used to present collections by default
       # within this object.
       #
-      # @param [Class] custom_presenter_class
+      # @param custom_presenter_class [Class]
       def collection_presented_by(custom_presenter_class)
         self.collection_presenter_class = custom_presenter_class
       end
@@ -51,10 +53,9 @@ module Makeover
     # Presents the given model or the current object with the current
     # object's configured presenter or the given class in +with:+.
     #
-    # @param [Object]     model - Model class to present. (optional)
-    # @option [Class]     :with - Presenter object that wraps the model.
-    # @option [Hash]  **context - Additional context for the presenter in
-    #                     key/value pairs.
+    # @param model [Object] Model class to present. (optional)
+    # @param with [Class] Presenter object that wraps the model.
+    # @param context [Hash] Additional context for the presenter.
     def present(model = nil, with: nil, **context)
       model ||= self
       with ||= model.try(:presenter_class) || presenter_class

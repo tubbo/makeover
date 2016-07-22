@@ -9,7 +9,7 @@ module Makeover
     # Wrap a new model as a presenter object.
     #
     # @param model [Object] Model object to wrap.
-    # @param **context [Hash] Extra context for the presenter.
+    # @param context [Hash] Extra context for the presenter.
     def initialize(model, **context)
       @model = model
       context.each do |option, value|
@@ -20,9 +20,11 @@ module Makeover
     # Wraps +ActiveSupport#delegate+ to specifically delegate methods to
     # the underlying object.
     #
-    # @param [Array<Symbol] *methods
-    # @option [Symbol] :to
-    # @option [Hash] **options
+    # @param methods [Array<Symbol>] *methods
+    # @param to [Symbol] :to
+    # @param options [Hash]
+    # @option options [Boolean] :allow_nil
+    # @option options [Boolean] :allow_blank
     def self.delegate(*methods, to: :model, **options)
       super(*methods, to: to, **options)
     end
