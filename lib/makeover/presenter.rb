@@ -15,10 +15,6 @@ module Makeover
       super(*methods, to: to, **options)
     end
 
-    def self.delegate_all
-      # no-op, we already do this
-    end
-
     def __getobj__
       @model
     end
