@@ -2,7 +2,7 @@
 module Makeover
   # Base Presenter class for all decorator objects.
   class Presenter < Delegator
-    # @!attribute [r]
+    # @!attribute [r] model
     #   @return [Object] Object being delegated to.
     attr_reader :model
 
