@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/tubbo/presenters/badges/gpa.svg)](https://codeclimate.com/github/tubbo/presenters)
 [![Issue Count](https://codeclimate.com/github/tubbo/presenters/badges/issue_count.svg)](https://codeclimate.com/github/tubbo/presenters)
 [![Test Coverage](https://codeclimate.com/github/tubbo/presenters/badges/coverage.svg)](https://codeclimate.com/github/tubbo/presenters/coverage)
+[![Documentation](http://inch-ci.org/github/tubbo/makeover.svg?branch=master)](http://inch-ci.org/github/tubbo/makeover)
 
 A [decorator][] library for [Rails][] applications, inspired by
 [Draper][], but with an emphasis on architectural simplicity. Makeover

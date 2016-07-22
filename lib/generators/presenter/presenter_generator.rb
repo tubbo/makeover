@@ -5,10 +5,12 @@ class PresenterGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
   class_option :collection, type: :boolean, default: false
 
+  # Create a new presenter.
   def copy_presenter
     template "#{presenter}.rb.erb", "app/presenters/#{file_name}_presenter.rb"
   end
 
+  # Create corresponding test for presenter.
   def copy_test
     template(
       "#{test}.rb.erb",

@@ -7,7 +7,8 @@ module Makeover
 
     MIXIN = "\n\s\sinclude Makeover::Presentable\n"
 
-    def copy_makeover
+    # Copy presenters into the project.
+    def copy_presenters
       %w(application collection).each do |type|
         filename = "app/presenters/#{type}_presenter.rb"
         if File.exist? Rails.root.join(filename).to_s
@@ -16,6 +17,7 @@ module Makeover
       end
     end
 
+    # Inject mixins into ApplicationRecord and ApplicationController
     def inject_mixin
       insert_into_file(
         'app/models/application_record.rb',
