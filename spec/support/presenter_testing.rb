@@ -6,6 +6,13 @@ class TestModel
   attr_accessor :name, :description
 end
 
+class AnotherTestModel
+  include ActiveModel::Model
+  include Makeover::Presentable
+
+  attr_accessor :name, :description
+end
+
 class TestModelsPresenter < Makeover::CollectionPresenter
 end
 
@@ -19,4 +26,7 @@ class TestModelPresenter < Makeover::Presenter
   def description
     model.description.upcase
   end
+end
+
+class AnotherTestModelPresenter < Makeover::Presenter
 end

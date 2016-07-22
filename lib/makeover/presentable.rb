@@ -7,9 +7,27 @@ module Makeover
     included do
       class_attribute :presenter_class
       class_attribute :collection_presenter_class
+      class_attribute :presentable_class_name
 
       alias_method :decorate, :present
       helper_method :present if respond_to? :helper_method
+
+      # @return [Class] Object used to present records.
+      def presenter_class
+        self.class.presenter_class || default_presenter_class
+      end
+
+      # @return [Class] Object used to present collections.
+      def collection_presenter_class
+        self.class.collection_presenter_class || default_collection_presenter_class
+      end
+
+      # Find the class name we use to derive presenter constants.
+      #
+      # @return [String] Class name for presenter lookup.
+      def presentable_class_name
+        self.class.presentable_class_name || controller_class_name || self.class.name
+      end
     end
 
     class_methods do
@@ -39,27 +57,13 @@ module Makeover
     #                     key/value pairs.
     def present(model = nil, with: nil, **context)
       model ||= self
-      with ||= presenter_class
+      with ||= model.try(:presenter_class) || presenter_class
 
-      if model.respond_to? :each
+      if model.respond_to?(:each) && with != collection_presenter_class
         return present model, with: collection_presenter_class, **context
       else
         with.new model, **context
       end
-    end
-
-    protected
-
-    # @private
-    # @return [Class] Presenter class for +#present+.
-    def presenter_class
-      self.class.presenter_class || default_presenter_class
-    end
-
-    # @protected
-    # @return [Class] Collection presenter class for +#present+.
-    def collection_presenter_class
-      self.class.collection_presenter_class || default_collection_presenter_class
     end
 
     private
@@ -76,14 +80,12 @@ module Makeover
       "#{presentable_class_name.pluralize}Presenter".constantize
     end
 
-    # Uses the +controller_name+ method if one is defined, otherwise
-    # returns the class name.
+    # Return the classified +controller_name+ if this object responds to
+    # a method like that (e.g., we're in a controller)
     #
-    # @private
-    # @return [String] Class name for presenter lookup.
-    def presentable_class_name
-      return controller_name.classify if respond_to? :controller_name
-      self.class.name
+    # @return [String] or +nil+ if not in a controller.
+    def controller_class_name
+      controller_name.classify if respond_to? :controller_name
     end
   end
 end

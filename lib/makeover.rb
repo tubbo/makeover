@@ -10,10 +10,4 @@ module Makeover
   autoload :Presenter
   autoload :CollectionPresenter
   autoload :Presentable
-  autoload :Relation
-
-  # Makeover configuration.
-  def self.config
-    Rails.application.config.makeover
-  end
 end

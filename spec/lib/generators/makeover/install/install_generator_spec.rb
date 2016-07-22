@@ -22,11 +22,11 @@ module Makeover
     end
 
     it 'installs base model presenter' do
-      assert_file 'app/makeover/application_presenter.rb'
+      assert_file 'app/presenters/application_presenter.rb'
     end
 
     it 'installs base collection presenter' do
-      assert_file 'app/makeover/collection_presenter.rb'
+      assert_file 'app/presenters/collection_presenter.rb'
     end
 
     it 'injects mixin into controller' do

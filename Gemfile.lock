@@ -188,9 +188,9 @@ DEPENDENCIES
   capybara
   codeclimate-test-reporter
   generator_spec
+  makeover!
   pg
   poltergeist
-  makeover!
   pry-byebug
   rspec-rails
   rubocop

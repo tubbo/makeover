@@ -9,7 +9,7 @@ module Makeover
 
     def copy_makeover
       %w(application collection).each do |type|
-        filename = "app/makeover/#{type}_presenter.rb"
+        filename = "app/presenters/#{type}_presenter.rb"
         if File.exist? Rails.root.join(filename).to_s
           copy_file "#{type}_presenter.rb", filename
         end

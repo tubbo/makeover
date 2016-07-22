@@ -4,7 +4,9 @@ AllCops:
     - 'spec/dummy/**/*'
     - 'tmp/**/*'
 
-# Offense count: 8
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
+
+Metrics/LineLength:
+  Max: 90

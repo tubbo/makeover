@@ -12,8 +12,8 @@ RSpec.describe PresenterGenerator, type: :generator do
     end
 
     it 'generates model presenter' do
-      assert_file 'app/makeover/post_presenter.rb'
-      assert_file 'test/makeover/post_presenter_test.rb'
+      assert_file 'app/presenters/post_presenter.rb'
+      assert_file 'test/presenters/post_presenter_test.rb'
     end
   end
 
@@ -21,8 +21,8 @@ RSpec.describe PresenterGenerator, type: :generator do
     before { run_generator %w(posts) }
 
     it 'generates collection presenter' do
-      assert_file 'app/makeover/posts_presenter.rb'
-      assert_file 'test/makeover/posts_presenter_test.rb'
+      assert_file 'app/presenters/posts_presenter.rb'
+      assert_file 'test/presenters/posts_presenter_test.rb'
     end
   end
 
@@ -30,8 +30,8 @@ RSpec.describe PresenterGenerator, type: :generator do
     before { run_generator %w(search --collection) }
 
     it 'generates collection presenter' do
-      assert_file 'app/makeover/search_presenter.rb', /class SearchPresenter/
-      assert_file 'test/makeover/search_presenter_test.rb'
+      assert_file 'app/presenters/search_presenter.rb', /class SearchPresenter/
+      assert_file 'test/presenters/search_presenter_test.rb'
     end
   end
 end
