@@ -17,7 +17,3 @@ module Presenters
     Rails.application.config.presenters
   end
 end
-
-if defined? ActiveRecord
-  using Presenters::Relation
-end

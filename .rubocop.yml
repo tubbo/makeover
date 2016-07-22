@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'vendor/bundle/**/*'
     - 'spec/dummy/**/*'
+    - 'tmp/**/*'
 
 # Offense count: 8
 Style/Documentation:

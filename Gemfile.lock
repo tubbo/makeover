@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    presenters (1.0.0.pre)
+    presenters (1.0.0.rc1)
       rails
 
 GEM
