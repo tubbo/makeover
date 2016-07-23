@@ -14,19 +14,19 @@ module Makeover
 
       # @return [Class] Object used to present records.
       def presenter_class
-        super || default_presenter_class
+        self.class.presenter_class || default_presenter_class
       end
 
       # @return [Class] Object used to present collections.
       def collection_presenter_class
-        super || default_collection_presenter_class
+        self.class.collection_presenter_class || default_collection_presenter_class
       end
 
       # Find the class name we use to derive presenter constants.
       #
       # @return [String] Class name for presenter lookup.
       def presentable_class_name
-        super || controller_class_name || self.class.name
+        self.class.presentable_class_name || controller_class_name || self.class.name
       end
     end
 
