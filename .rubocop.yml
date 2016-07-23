@@ -10,3 +10,6 @@ Style/Documentation:
 
 Metrics/LineLength:
   Max: 90
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
