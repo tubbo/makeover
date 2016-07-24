@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    makeover (1.0.0.rc2)
+    makeover (1.0.0.rc3)
       rails
 
 GEM
