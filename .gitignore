@@ -11,3 +11,4 @@ tags
 doc/
 spec/examples.txt
 tmp/
+Gemfile.lock
