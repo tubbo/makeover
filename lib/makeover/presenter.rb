@@ -2,6 +2,10 @@
 module Makeover
   # Base Presenter class for all decorator objects.
   class Presenter < Delegator
+    extend Delegation
+
+    delegate :t, :translate, to: I18n
+
     # @!attribute [r] model
     #   @return [Object] Object being delegated to.
     attr_reader :model
@@ -15,37 +19,6 @@ module Makeover
       context.each do |option, value|
         instance_variable_set "@#{option}", value
       end
-    end
-
-    # Wraps +ActiveSupport#delegate+ to specifically delegate methods to
-    # the underlying object.
-    #
-    # @param methods [Array<Symbol>] *methods
-    # @param to [Symbol] :to
-    # @param options [Hash]
-    # @option options [Boolean] :allow_nil
-    # @option options [Boolean] :allow_blank
-    def self.delegate(*methods, to: :model, **options)
-      super(*methods, to: to, **options)
-    end
-
-    # Delegate translation methods to i18n
-    delegate :t, to: I18n
-
-    # Figure out model class of presenter so we can delegate to the
-    # proper model_name instance.
-    def self.model_class
-      name.gsub(/Presenter/, '').classify.constantize
-    end
-
-    class << self
-      # Delegate model name lookups to model class of this presenter.
-      delegate :model_name, to: :model_class
-    end
-
-    # No-op for Draper support.
-    def self.delegate_all
-      # noop
     end
 
     # Return the model object.
