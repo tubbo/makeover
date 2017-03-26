@@ -9,9 +9,7 @@ module Makeover
     def initialize
       self.class.send :include, Rails.application.routes.url_helpers
       self.class.send :include, Rails.application.helpers
-      Rails.configuration.makeover.helpers.each do |helper|
-        self.class.send :include, helper
-      end
+      self.class.send :include, Rails.configuration.makeover.helpers
     end
   end
 end
