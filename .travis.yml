@@ -1,12 +1,17 @@
 language: ruby
 rvm:
-  - 2.3
-  - 2.4
-  - 2.5
-  - 2.6
-cache: bundler
-before_script: bin/rake db:setup
+- 2.3
+- 2.4
+- 2.5
+- 2.6
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script: bin/rake
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 deploy:
   provider: rubygems
   api_key:
@@ -15,10 +20,7 @@ deploy:
   on:
     tags: true
     repo: tubbo/makeover
-addons:
-  code_climate:
-    repo_token:
-      secure: EDzxb1nhZDKbvtTePawKd2hYT+kNAevhQIukB/s/aHei54+9BF7bcF7LTl4V2uIAdBlBj+zFHtR8YvnfsrtTxqMN+Qq9hutQLbqFFbWYLe8KZLGQbUzDLLNyL8iBVLRfF28S0Jr5Ir+QBQlavWZTbCCRdY/6Nk7AIrIRFMIX/ZWEbl5i1vKR7/pLOqvHK0BGiKJVL1k4bDDZM8GvV3s6dNKXrHxQAGKKikYrdegjJMKMyBy5CHfUsZtuQLI/ZKHijK5j0gZxwvqrCGFV3/x6lCfb6F02UUFg9s+Qrxgjq3EKFro+z9cIjFjCotK5j2qaPqhgl0DC+k2IG8N1QCK91IGQdfTCvro99j+wosI9640iU7ioex4Rl8ye+22+U0q0M9QQiwf09+JTl44TguAHs6ht2PTcfwE+fATcGzlIkpaAzT37T3bjgnjiRz2VcFqTwqSvt3/e7uQ0gqQdmbaOWB5x/wqkwDyqz822/BSNOwkdXLy+QIRjUE3DtFOcAK1Y5u7bbdJm8UUzMpxrTsugJEduIxXQHFFfv7ZHvN7imF9QuNhnZh7CZpw9x4unSxsnvY6EDL2Hoc3mRmw3oSipVsO/MVbqu5KJEY6fb+Wwci73v13RPtUWb8xRcWo0FF72WoZAvWG0Yi9bfButqB3j2LeQ55N+XJU84em0UTiqQ/M=
 env:
   global:
-    - COVERAGE=true
+  - COVERAGE=true
+  - secure: UxrE/Y54zjbun/mQsjaxj6W7907cablbYks35MWYeNtHG8wuEK0fk2UgXL2hi7LoQUgzJ+7xGLO+U5/8YeQx6GqRKbzxU0omruHQkqYqtGFz0BCssFg4lMHAH/iLotArvcl/oGU4uHooZXDFwUFiggDwb7m5TdD2QK3fVBHG5N8J/FfmzS5Cyf3WfyKhBR0ceotWrAyPUJGC8IKG27YFnsTXg42Mdt6nuIwHSokJXkvTtiFjkE2CBMIfxtZuvPDkch804HkfXpQXb/1sUyWiFL9n20/T3KJDI1dinW4W7svvKqJqTaRoqi1fyrSxbebrIhh3CVdkHw3BFGwLkXfojMlL8sBPEUhB3CHelo0bsXjDP3FxR/vqXihA8llClXc71euCRRiOSNr6ySVtpBfPp/oaH8ZowRNF+Z8C4lV0HDN6XHd561Ap5MadVpLqAdYg1xr+sFcPdI1CRT+soK77zr7j3WrUXJZC5SvWlwxM3Zafqn5SG3suTyJMjuFtVHvlTt+tSvRxHWdptk5QmbXcVuyu2Knd+hTlI7cOhx9vxQXT27ODH5acOtjTvvV9F7KBVHf+fJr1gyJ2HIeoOM18yfiEmsyNj/uk7UbJG7Fj3gIrWo34cXu2xk4J0lu03xx5I81Fig/j5gqi7HaiWkJ1hda6nCyGYdRof0SN1+PGTv0=
