@@ -1,10 +1,10 @@
 .bundle/
 log/*.log
 pkg/
-spec/dummy/db/*.sqlite3
-spec/dummy/db/*.sqlite3-journal
-spec/dummy/log/*.log
-spec/dummy/tmp/
+test/dummy/db/*.sqlite3
+test/dummy/db/*.sqlite3-journal
+test/dummy/log/*.log
+test/dummy/tmp/
 vendor/bundle
 tags
 .yardoc/
@@ -12,3 +12,4 @@ doc/
 spec/examples.txt
 tmp/
 Gemfile.lock
+coverage

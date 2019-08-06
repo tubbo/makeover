@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Makeover
   # Base Presenter class for all decorator objects.
   class Presenter < Delegator

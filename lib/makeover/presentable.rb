@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Makeover
   # Controller and model mixin for presenting objects.
   module Presentable
@@ -13,19 +14,19 @@ module Makeover
       helper_method :present if respond_to? :helper_method
 
       # @return [Class] Object used to present records.
-      def presenter_class
+      define_method :presenter_class do
         self.class.presenter_class || default_presenter_class
       end
 
       # @return [Class] Object used to present collections.
-      def collection_presenter_class
+      define_method :collection_presenter_class do
         self.class.collection_presenter_class || default_collection_presenter_class
       end
 
       # Find the class name we use to derive presenter constants.
       #
       # @return [String] Class name for presenter lookup.
-      def presentable_class_name
+      define_method :presentable_class_name do
         self.class.presentable_class_name || controller_class_name || self.class.name
       end
     end
@@ -59,12 +60,10 @@ module Makeover
     def present(model = nil, with: nil, **context)
       model ||= self
       with ||= model.try(:presenter_class) || presenter_class
+      with = collection_presenter_class \
+        if model.respond_to?(:each) && with != collection_presenter_class
 
-      if model.respond_to?(:each) && with != collection_presenter_class
-        return present model, with: collection_presenter_class, **context
-      else
-        with.new model, **context
-      end
+      with.new model, **context
     end
 
     private

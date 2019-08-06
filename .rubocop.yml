@@ -7,9 +7,11 @@ AllCops:
 Style/Documentation:
   Exclude:
     - 'spec/**/*'
-
-Metrics/LineLength:
-  Max: 90
+    - 'test/**/*'
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/test_helper.rb

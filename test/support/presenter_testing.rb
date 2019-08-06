@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class TestModel
   include ActiveModel::Model
   include Makeover::Presentable
@@ -22,7 +23,7 @@ end
 
 class TestModelPresenter < Makeover::Presenter
   attr_reader :optional
-  delegate :explicit_delegated_method
+  delegate :explicit_delegated_method, to: :model
   delegate :custom_delegated_method, to: :optional, allow_nil: true
 
   def title

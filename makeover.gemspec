@@ -27,13 +27,14 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails'
 
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'codeclimate-test-reporter'
-  s.add_development_dependency 'generator_spec'
-  s.add_development_dependency 'poltergeist'
+  s.add_development_dependency 'mocha'
   s.add_development_dependency 'pry-byebug'
-  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'puma'
   s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'selenium-webdriver'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'travis-release'
+  s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'yard'
 end
