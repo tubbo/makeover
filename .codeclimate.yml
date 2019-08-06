@@ -1,7 +1,7 @@
 ---
 engines:
-  # brakeman:
-  #   enabled: true
+  brakeman:
+    enabled: true
   bundler_audit:
     enabled: true
   duplication:
@@ -13,17 +13,10 @@ engines:
     enabled: true
   rubocop:
     enabled: true
+    channel: rubocop-0-66
   reek:
     enabled: true
     exclude_fingerprints:
       - ec678b5cddf3e42ffa054aca77a4dc65
       - 5b926a8df7748b27151d854c839fd4ae
       - 820b7465c173b6858df11101fe3880ff
-ratings:
-  paths:
-    - Gemfile.lock
-    - "**.erb"
-    - "**.rb"
-exclude_paths:
-  - config/
-  - spec/
