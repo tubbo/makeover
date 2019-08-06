@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 
 # Maintain your gem's version:
 require 'makeover/version'
@@ -23,16 +24,16 @@ Gem::Specification.new do |s|
     'README.md'
   ]
 
-  s.add_dependency 'rails' # , "~> 5.0.0"
+  s.add_dependency 'rails'
 
-  s.add_development_dependency 'pg'
-  s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'poltergeist'
-  s.add_development_dependency 'generator_spec'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'travis-release'
   s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'generator_spec'
+  s.add_development_dependency 'poltergeist'
   s.add_development_dependency 'pry-byebug'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'travis-release'
+  s.add_development_dependency 'yard'
 end

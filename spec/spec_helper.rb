@@ -6,8 +6,8 @@ require File.expand_path('dummy/config/environment', __dir__)
 $LOAD_PATH << File.expand_path('../lib', __dir__)
 
 # Configure Test Coverage Reporting
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+# require 'codeclimate-test-reporter'
+# CodeClimate::TestReporter.start
 
 # Prevent database truncation if the environment is production
 if Rails.env.production?

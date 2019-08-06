@@ -21,10 +21,11 @@ module Makeover
     # @param options [Hash]
     # @option options [Boolean] :allow_nil
     # @option options [Boolean] :allow_blank
-    def delegate(*methods, to: :model, **options)
-      if to == :model
+    def delegate(*methods, to: nil, **options)
+      if to.nil?
         Makeover.deprecator.deprecation_warning 'delegate without specifying :to'
       end
+      to ||= :model
       super(*methods, to: to, **options)
     end
 

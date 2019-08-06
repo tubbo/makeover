@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Makeover
   # Access view and route helpers from within the makeover.
   class Helpers
@@ -9,7 +10,9 @@ module Makeover
     def initialize
       self.class.send :include, Rails.application.routes.url_helpers
       self.class.send :include, Rails.application.helpers
-      self.class.send :include, Rails.configuration.makeover.helpers
+      Rails.configuration.makeover.helpers.each do |helper|
+        self.class.send :include, helper
+      end
     end
   end
 end
